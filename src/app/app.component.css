@@ -1,0 +1,178 @@
+html {
+	-webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust:     100%;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    font: 16px 'Modern Antiqua', cursive;
+}
+
+body {
+
+}
+
+img {
+	display: block;
+	border: 0;
+	width: 100%;
+	height: auto;
+}
+
+/* wrapper = page container */
+.wrapper {
+    display: grid;
+    text-align: center;
+    max-height: 800px;
+    max-width: 1000px;
+    min-height: 500px;
+}
+
+/* Styling */
+.wrapper {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Navbar = navigation bar */
+.navbar {
+    display: flex;
+    flex-flow: row;
+    margin: 0.1em auto;
+    align-content: center;
+    flex-wrap: wrap;  
+    padding: 2px;
+}
+
+/* Styling */
+
+.navbar > a {
+    background-color: rgb(243, 174, 25);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+
+}
+/* Btn in navbar */
+.navbar > a {
+    max-height: 1.5em;
+    margin: 0.2em;
+    cursor: pointer;  
+    padding: 10px;
+}
+/* Main = container for main content (ex. products list, home etc. */
+.main {
+    margin-top: 0;
+    padding: 10px;
+    display: block;
+    justify-items: center;
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    line-height: 3 em;
+    font-weight: bold; 
+    padding: 0.2em;
+    color: black;
+    border-radius: 5px;
+    background-color: rgba(243, 174, 25, 0.5);
+
+}
+
+/* Classes */
+
+.navbar > a.active {
+    background-color:white;
+    color:  rgb(243, 174, 25);
+    border: 1px solid rgb(243, 174, 25);
+
+}
+
+
+/* --------------------------------------------------------------------------------------------------------------- */
+/* Grid areas for wrapper*/
+
+.main {
+     grid-area: cont;
+}
+
+.navbar {
+    grid-area: nav;
+}
+
+footer {
+     grid-area: footer;
+}
+
+
+/* --------------------------------------------------------------------------------------------------------------- */
+/* Media queries */
+
+@supports (display: grid) {
+    
+/* Smartphone + tablet */
+    @media only screen and (min-width : 300px) and (max-width : 800px) {
+        
+        .wrapper {
+            margin: 0;
+            max-height: 100%;
+        }
+
+        .wrapper {
+            grid-template-columns: 1fr;
+            grid-template-rows: 0.5fr 4fr 1fr;
+            grid-gap: 0em;
+            grid-template-areas: 
+            "nav"
+            "cont"
+            "footer";
+        }
+    }
+
+/* Laptop  */
+    @media screen and (min-width: 800px) and (max-width: 1280px) {
+        
+        .wrapper {
+            margin: 0 10% 0 10%;
+        }
+
+        .wrapper {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 5fr 100px;
+            grid-gap: 0.5em;
+            grid-template-areas: 
+            "nav nav "
+            "cont cont"
+            "footer footer";
+        }         
+    }
+
+/* Large screen */
+    @media screen and (min-width: 1290px) {
+     
+        .wrapper {
+            margin: 0 auto;
+        }
+
+        .navbar {
+            flex-flow: column;
+        }
+
+        .wrapper {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows:  1fr 5fr 0.5fr;
+            grid-gap: 0.5em;
+            grid-template-areas: 
+            "nav cont cont"
+            "nav cont cont"
+            "footer footer footer";
+        }         
+    }
+}

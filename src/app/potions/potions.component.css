@@ -1,0 +1,110 @@
+.main-potions {
+    max-width: 500px;
+    margin: 0 auto;
+
+}
+.wrapper-potions {
+    display: grid;
+    max-width: 500px;
+}
+
+.potion-nav {
+    justify-content: center;
+    display: flex;
+    flex-flow: row;
+    margin: 0.5em auto;
+    align-content: center;
+    flex-wrap: wrap;  
+    padding: 2px;}
+
+.potion-nav > a {
+    background-color: rgb(243, 174, 25);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    max-height: 1.5em;
+    margin: 0.2em;
+    cursor: pointer;  
+    padding: 10px;
+}
+
+.potion-nav > a.active {
+    background-color:white;
+    color:  rgb(243, 174, 25);
+    border: 1px solid rgb(243, 174, 25);
+}
+
+.img {
+    height: 100px;
+    width: auto;
+}
+
+.btn {
+    background-color: rgb(243, 174, 25);
+    color: white;
+    margin: 0.2em;
+    cursor: pointer;  
+
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    float: right;
+}
+
+.details {
+    display:block;
+    justify-self: center;
+}
+
+/* Grid areas for potion */
+
+.potion1 {
+    grid-area: column1;
+}
+.potion2 {
+    grid-area: column2;
+}
+.potion3 {
+    grid-area: column3;
+}
+
+/* Media wueries */
+@supports (display: grid) {
+    
+    /* Smartphone + tablet */
+        @media only screen and (min-width : 300px) and (max-width : 800px) {
+               
+            .wrapper-potions {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr;
+                grid-gap: 0em;
+                grid-template-areas: 
+                "column1 column2 column3";                
+            }
+        }
+    
+    /* Laptop  */
+        @media screen and (min-width: 800px) and (max-width: 1280px) {
+               
+            .wrapper-potions {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr;
+                grid-gap: 0.1em;
+                grid-template-areas: 
+                "column1 column2 column3";
+            }         
+        }
+    
+    /* Large screen */
+        @media screen and (min-width: 1290px) {
+            
+            .wrapper-potions {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows:  1fr 5fr 0.5fr;
+                grid-gap: 0.1em;
+                grid-template-areas: 
+                "column1 column2 column3";
+            }         
+        }
+    }

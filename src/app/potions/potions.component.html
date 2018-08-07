@@ -1,0 +1,29 @@
+<div class="main-potions">
+  <h1>Potions</h1>
+
+  <div class="potion-nav">
+    <!-- Display btn for every potion-->
+    <a     routerLinkActive="active"
+    *ngFor="let potion of potions" class="btn"
+    [class.selected]="potion === selectedPotion" 
+    (click)="onSelect(potion)">
+    {{potion.name}}</a>
+  </div>
+
+ <!-- Display details of selected product -->
+ <div class="details" *ngIf="selectedPotion">
+    <h2>{{selectedPotion.name | uppercase}}</h2>
+      <p>
+        <span>Difficulty level: </span><b>{{selectedPotion.difficulty}}</b><br>
+        <span>Purpose: </span><b>{{selectedPotion.purpose}}</b><br>
+        <span>Preparation time: </span><b>{{selectedPotion.time}} hrs</b> 
+      </p>
+      <img class="img" [src]="selectedPotion.imgUrl">
+  </div>
+
+
+  <!-- Navigation button - back to "home" -->
+  <nav>
+      <a class="btn" routerLink="/welcome">Back</a>
+  </nav>
+</div>

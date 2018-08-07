@@ -1,0 +1,24 @@
+  <h1>List: </h1>
+  
+  <ul class="products">
+    <!-- Display every product on the list -->
+    <li *ngFor="let product of products; let ind = index"
+    [class.selected]="product === selectedProduct"
+    (click)="onSelect(product)"> {{product.name}} <span (click) = "removeProduct(ind)">x</span>
+    </li>
+  </ul>
+
+  <!-- Display details of selected product -->
+  <div class="details" *ngIf="selectedProduct">
+    <h2>{{selectedProduct.name | uppercase}} details</h2>
+      <p>
+        <span>Id: </span><b>{{selectedProduct.id}}</b><br>
+        <span>Price: </span><b>{{selectedProduct.price | currency}}</b><br>
+        <span>Description: </span><b>{{selectedProduct.details}}</b> 
+      </p>
+  </div>
+
+  <!-- Navigation button - back to "home" -->
+  <nav>
+    <a class="btn" routerLink="/welcome">Back</a>
+  </nav>
